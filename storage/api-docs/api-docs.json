@@ -1,0 +1,67 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "masks_on_web",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/masks_on_web": {
+            "get": {
+                "tags": [
+                    "masks_on_web"
+                ],
+                "summary": "masks_on_web輸入樣式",
+                "description": "顯示輸入畫面樣式",
+                "operationId": "get_masks_on_web",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/masks_on_web/show": {
+            "get": {
+                "tags": [
+                    "masks_output"
+                ],
+                "summary": "masks_on_web輸出樣式",
+                "description": "顯示輸出畫面樣式",
+                "operationId": "getProjectById",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "Input address",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2_security_example": [
+                            "write:projects",
+                            "read:projects"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
